@@ -1,0 +1,150 @@
+[
+  {
+    "image": "golden_gate",
+    "moderation": {
+      "safe": true,
+      "confidence": "high",
+      "flags": [],
+      "reason": "The image depicts a well-known landmark (Golden Gate Bridge) and contains no visible violence, explicit content, hate symbols, dangerous activities, PII, spam, or misleading information."
+    },
+    "status": "OK",
+    "alt_text": "Golden Gate Bridge, a large reddish-orange suspension bridge, spans the water with a city skyline behind it.",
+    "catalog": {
+      "title": "Golden Gate Bridge over San Francisco Bay",
+      "category": "Travel & Landmarks",
+      "subcategory": "Suspension Bridge",
+      "keywords": [
+        "Golden Gate Bridge",
+        "San Francisco",
+        "suspension bridge",
+        "California landmark",
+        "San Francisco Bay"
+      ],
+      "description": "A breathtaking view of the iconic Golden Gate Bridge, showcasing its distinct orange hue as it spans the San Francisco Bay with the city skyline in the background. This world-renowned suspension bridge is a symbol of engineering marvel and a major tourist attraction in California.",
+      "dominant_colors": [
+        "Orange",
+        "Blue"
+      ],
+      "style_tags": [
+        "Panoramic",
+        "Golden Hour"
+      ],
+      "similar_searches": [
+        "San Francisco landmarks",
+        "Famous bridges architecture"
+      ]
+    },
+    "caption": "Golden Gate Bridge: Iconic beauty spanning San Francisco's shimmering bay."
+  },
+  {
+    "image": "eiffel_tower",
+    "moderation": {
+      "safe": true,
+      "confidence": "high",
+      "flags": [],
+      "reason": "The image depicts a famous landmark (Eiffel Tower) and a park setting under a clear sky. There are no elements suggesting violence, explicit content, hate symbols, dangerous activities, PII, spam, or misleading content."
+    },
+    "status": "OK",
+    "alt_text": "Eiffel Tower stands tall against a clear blue sky, viewed from a long green lawn with trees.",
+    "catalog": {
+      "title": "Eiffel Tower and Champ de Mars, Paris",
+      "category": "Travel & Landmarks",
+      "subcategory": "Iconic Monument",
+      "keywords": [
+        "Eiffel Tower",
+        "Paris",
+        "France",
+        "landmark",
+        "monument"
+      ],
+      "description": "The iconic Eiffel Tower stands tall against a clear blue sky, viewed from the lush green expanse of the Champ de Mars in Paris, France. This world-renowned iron lattice monument is a symbol of French engineering and a top global tourist attraction.",
+      "dominant_colors": [
+        "Blue",
+        "Green"
+      ],
+      "style_tags": [
+        "Travel photography",
+        "Architectural"
+      ],
+      "similar_searches": [
+        "Paris landmarks",
+        "Eiffel Tower view"
+      ]
+    },
+    "caption": "Parisian perfection: the iconic Eiffel Tower bathed in sunlight."
+  },
+  {
+    "image": "cat",
+    "moderation": {
+      "safe": true,
+      "confidence": "high",
+      "flags": [],
+      "reason": "The image depicts a cat sitting outdoors and contains no elements violating policies such as violence, explicit content, hate symbols, dangerous activities, PII, spam, or misleading content."
+    },
+    "status": "OK",
+    "alt_text": "Brown tabby cat with green eyes sitting on a wall, looking forward.",
+    "catalog": {
+      "title": "Alert Brown Tabby Cat Portrait",
+      "category": "Nature & Wildlife",
+      "subcategory": "Domestic Cat",
+      "keywords": [
+        "tabby cat",
+        "domestic cat",
+        "striped fur",
+        "feline",
+        "green eyes"
+      ],
+      "description": "A beautiful brown tabby cat with striking green eyes sits alertly against a blurred natural background. Its distinctive striped fur is clearly visible in this outdoor portrait.",
+      "dominant_colors": [
+        "Brown",
+        "Grey"
+      ],
+      "style_tags": [
+        "Animal Photography",
+        "Portrait"
+      ],
+      "similar_searches": [
+        "tabby cat images",
+        "domestic shorthair cat"
+      ]
+    },
+    "caption": "Majestic tabby cat, poised and watchful."
+  },
+  {
+    "image": "market",
+    "moderation": {
+      "safe": true,
+      "confidence": "high",
+      "flags": [],
+      "reason": "The image depicts a public market scene with no visible policy violations such as violence, explicit content, hate symbols, dangerous activities, or identifiable personal information. It appears to be a benign photograph."
+    },
+    "status": "OK",
+    "alt_text": "Bustling market with colorful textiles, clothing, and goods displayed in stalls along a busy arched walkway with shoppers.",
+    "catalog": {
+      "title": "Vibrant Covered Market Bazaar Interior",
+      "category": "Art & Collectibles",
+      "subcategory": "Traditional Handicrafts",
+      "keywords": [
+        "bazaar",
+        "souk",
+        "covered market",
+        "handicrafts",
+        "textiles"
+      ],
+      "description": "A vibrant, bustling covered market (bazaar or souk) filled with numerous stalls selling a variety of traditional goods, including colorful textiles and handicrafts. Shoppers browse the narrow aisles under arched passageways, soaking in the cultural atmosphere.",
+      "dominant_colors": [
+        "Brown",
+        "Red"
+      ],
+      "style_tags": [
+        "Traditional",
+        "Vibrant"
+      ],
+      "similar_searches": [
+        "Traditional marketplace scene",
+        "Middle Eastern bazaar"
+      ]
+    },
+    "caption": "This bustling bazaar offers a vibrant labyrinth of endless delights."
+  }
+]
