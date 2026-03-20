@@ -74,6 +74,7 @@ source .venv/bin/activate   # Windows: .venv\Scripts\activate
 |---------------|----------|-----------------|
 | **GEMINI_API_KEY** | Calling the Gemini API from notebooks (Google AI Studio key) | [Google AI Studio](https://aistudio.google.com/) |
 | **GCP_PROJECT** | Vertex AI, deployment, and cloud examples | [Google Cloud Console](https://console.cloud.google.com/) *(free tier available)* |
+| **GCP_LOCATION** | Vertex AI, deployment, and cloud examples | [Google Cloud Console](https://console.cloud.google.com/) *(free tier available)* |
 
 Set environment variables in your shell or in a **`.env`** file in the project root (gitignored). The course uses **`GEMINI_API_KEY`** (not `GOOGLE_API_KEY`).
 
