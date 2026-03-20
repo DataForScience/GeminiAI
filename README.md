@@ -5,125 +5,155 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/DataForScience/GeminiAI)
 
 [![Graphs For Science](https://img.shields.io/badge/Graphs_For_Science-Subscribe-blue)](https://graphs4sci.substack.com/)
-	[![Data Science Briefing](https://img.shields.io/badge/Sunday_Briefing-Subscribe-blue)](https://data4science.ck.page/a63d4cc8d9)
+[![Data Science Briefing](https://img.shields.io/badge/Sunday_Briefing-Subscribe-blue)](https://data4science.ck.page/a63d4cc8d9)
 
-# Gemini API with VertexAI for Developers
+# Gemini API with Vertex AI for Developers
 
-### Code and slides to accompany the online series of webinars: https://www.oreilly.com/live-events/gemini-api-with-vertexai-for-developers/0642572299484/ by Data For Science.
+### Code and slides for the Data For Science webinar series: [Gemini API with Vertex AI for Developers](https://www.oreilly.com/live-events/gemini-api-with-vertexai-for-developers/0642572299484/) (O’Reilly).
 
-This webinar provides attendees with an excellent opportunity to explore Google's cutting-edge Generative AI capabilities, specifically focusing on the Gemini API within the Vertex AI framework on Google Cloud Platform. As AI development accelerates, understanding and implementing multimodal generative models have become essential for creating innovative and intelligent applications. The session will provide participants with the knowledge and hands-on skills to leverage generative AI across various modalities, including text generation for content creation and natural language processing, image synthesis for design and visual communication, video creation for automated production and immersive experiences, and audio generation for advancements in voice assistants and sound design.
+This course explores Google’s generative AI stack: the **Gemini API** (Google AI Studio and Vertex AI) on **Google Cloud**. You’ll work through text and multimodal use cases, deployment and MLOps patterns on Vertex AI, and end-to-end solution design (RAG, agents, and pipelines). The notebooks are meant to be run in order so concepts and credentials build from one module to the next.
 
-The content is designed to provide developers with the necessary skills and knowledge to integrate powerful AI features into their projects. Whether building new applications or enhancing existing ones, the insights gained will enable the creation of more dynamic, interactive, and intelligent user experiences. By mastering the Gemini API within Vertex AI and the broader GCP ecosystem, developers will be positioned to harness the latest developments by one of the forefront leaders in this growing field.
+## Course structure
 
-## Course Structure
-### 1. Gemini API and Vertex AI Fundamentals
-- Generative AI
-- Introduction to Gemini API
-- Overview of Vertex AI
+### 1. Gemini API and Vertex AI fundamentals
+- Generative AI overview
+- Gemini API introduction
+- Vertex AI overview
 
-### 2. Gemini API for Text Generation
-- Prompt Engineering for Text Models
-- Text Generation with Gemini API
-- Text Models for Information Extraction
+### 2. Gemini API for text generation
+- Prompt engineering for text models
+- Text generation with the Gemini API
+- Information extraction with text models
 
-### 3. Multimodal Applications with Gemini API
-- Exploring Gemini's Image and Video Understanding Capabilities
-- Hands-on: Image Captioning and Visual Question Answering
-- Integrating Multimodal Inputs for Advanced Applications
-- Real-world Use Cases for Multimodal Generative AI
+### 3. Multimodal applications with the Gemini API
+- Image and video understanding
+- Hands-on: captioning and visual Q&A
+- Multimodal inputs for richer applications
+- Real-world multimodal use cases
 
-### 4. Vertex AI and Deployment Strategies
-- Advanced MLOps Practices with Vertex AI
-- Model Monitoring and Explainability on Vertex AI
-- Deploying Gemini-powered Applications
-- Scaling and Optimization for Production Environments
+### 4. Vertex AI and deployment strategies
+- MLOps practices with Vertex AI (including Kubeflow Pipelines samples)
+- Model monitoring and explainability concepts
+- Deploying Gemini-powered applications (e.g. Cloud Run-oriented examples)
+- Scaling and optimization considerations for production
 
-### 5. End-to-End Generative AI Solutions
-- Designing and Architecting Generative AI Systems
-- Best Practices for Security and Data Privacy
+### 5. End-to-end generative AI solutions
+- Architecture patterns: **RAG**, **agents**, and **multi-stage pipelines**
+- Designing production-oriented generative AI systems
+- Security, privacy, and responsible use
 
 ## Setup
 
+**Requirements:** Python **3.10+** (the materials are tested with **3.12**). Dependencies are defined in `pyproject.toml` and locked with `uv.lock`.
+
 ### 1) Install dependencies (recommended: `uv`)
 
-1. Install `uv` (if needed):
+1. Install [uv](https://github.com/astral-sh/uv) if needed:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-2. Create an environment and install dependencies:
+2. Clone the repo and install into a local virtual environment:
 
 ```bash
 git clone https://github.com/DataForScience/GeminiAI.git
 cd GeminiAI
-uv venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
 uv sync
 ```
 
-### 2) Add API keys
-
-You'll need accounts with the following services:
-
-| Service          | Used in              | Where to get it                                  |
-|------------------|----------------------|--------------------------------------------------|
-| Google AI Studio | Modules 1, 3, 4, 5   | aistudio.google.com                              |
-| Google Cloud     | Modules 1, 4         | console.cloud.google.com *(free tier available)* |
-
-Once you have your keys, set the following environment variables (or add them to a `.env` file):
-
-```
-GEMINI_API_KEY=...
-GCP_PROJECT=your-gcp-project-id
-```
-
-### 3) Launch notebooks
+`uv sync` creates `.venv` and installs Jupyter, Gemini/Vertex client libraries, **KFP** (Kubeflow Pipelines), and the rest of the stack. To use the environment explicitly:
 
 ```bash
-jupyter notebook
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
 ```
 
-## Repository Structure
+### 2) API keys and Google Cloud
+
+| What you need | Used for | Where to get it |
+|---------------|----------|-----------------|
+| **GEMINI_API_KEY** | Calling the Gemini API from notebooks (Google AI Studio key) | [Google AI Studio](https://aistudio.google.com/) |
+| **GCP_PROJECT** | Vertex AI, deployment, and cloud examples | [Google Cloud Console](https://console.cloud.google.com/) *(free tier available)* |
+
+Set environment variables in your shell or in a **`.env`** file in the project root (gitignored). The course uses **`GEMINI_API_KEY`** (not `GOOGLE_API_KEY`).
+
+For **Vertex AI** and GCP APIs, enable the **Vertex AI API** on your project and authenticate with Application Default Credentials, for example:
+
+```bash
+gcloud auth application-default login
+gcloud services enable aiplatform.googleapis.com --project=YOUR_PROJECT_ID
+```
+
+Exact `gcloud` steps also appear in the notebooks where relevant.
+
+### 3) Launch Jupyter
+
+From the project directory (with the env active, or via `uv run`):
+
+```bash
+uv run jupyter notebook
+```
+
+### Alternative: `pip` / `venv`
+
+This repository is **not** configured as an installable Python package (no `src` layout / package discovery), so **`pip install -e .` is not supported**. Prefer **`uv sync`**.
+
+If you cannot use `uv`, create a virtual environment and install the dependencies listed under **`[project].dependencies`** in `pyproject.toml`, for example:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install "google-cloud-aiplatform>=1.71.1" "google-genai>=1.68.0" "google-generativeai>=0.8.6" "jupyter>=1.1.1" "kfp>=2.13.0" "matplotlib>=3.10.8" "numpy>=2.2.6" "pandas>=2.3.3" "vertexai>=1.71.1" "watermark>=2.6.0"
+```
+
+The checked-in **`requirements.txt`** is a **minimal, older pin** (matplotlib / numpy / pandas / watermark only) and does **not** include the Gemini, Vertex AI, or KFP stack.
+
+## Repository structure
 
 ```
 GeminiAI/
-├── 1. Gemini Fundamentals.ipynb                 # Module 1: Gemini API basics
-├── 2. Text Generation.ipynb                     # Module 2: Text generation
-├── 3. Multimodal.ipynb                          # Module 3: Multimodal inputs
-├── 4. Deployment.ipynb                          # Module 4: Deployment
-├── 5. E2E Solutions.ipynb                       # Module 5: End-to-end solutions
-├── slides/                                      # Slides
-│   └── GeminiAI.pdf
-├── data/                                        # Logos, author image, and sample assets
-├── d4sci.mplstyle                               # Custom matplotlib style
-├── pyproject.toml                               # Dependency manifest (for `uv sync`)
-└── .env                                         # API keys (create this file; do not commit)
+├── 1. Gemini Fundamentals.ipynb      # Module 1
+├── 2. Text Generation.ipynb          # Module 2
+├── 3. Multimodal.ipynb               # Module 3
+├── 4. Deployment.ipynb               # Module 4
+├── 5. E2E Solutions.ipynb            # Module 5
+├── Untitled.ipynb                    # D4Sci notebook template (branding / structure)
+├── slides/
+│   ├── GeminiAI.pdf                  # Primary slide deck
+├── data/                             # Logos, author image, sample images/audio/video
+├── d4sci.mplstyle                    # Matplotlib style for figures
+├── pyproject.toml                    # Project metadata and dependencies
+├── uv.lock                           # Locked versions for uv
+├── requirements.txt                  # Legacy minimal deps only (see Setup)
+├── LICENSE
 ```
 
 ## Suggested learning path
 
-- Start with **Module 1** and run the notebooks in order (1 → 5).
-- If you only want the deck, open `slides/GeminiAI.pdf`.
+- Work through **Modules 1 → 5** in order.
+- For slides only, open **`slides/GeminiAI.pdf`**.
 
-| File                           | Topic                                   |
-| --------------------------------| -----------------------------------------|
-| `1. Gemini Fundamentals.ipynb` | Gemini API and Vertex AI Fundamentals   |
-| `2. Text Generation.ipynb`     | Gemini API for Text Generation          |
-| `3. Multimodal.ipynb`          | Multimodal Applications with Gemini API |
-| `4. Deployment.ipynb`          | Vertex AI and Deployment Strategies     |
-| `5. E2E Solutions.ipynb`       | End-to-End Generative AI Solutions      |
+| Notebook | Topic |
+|----------|--------|
+| `1. Gemini Fundamentals.ipynb` | Gemini API and Vertex AI fundamentals |
+| `2. Text Generation.ipynb` | Gemini API for text generation |
+| `3. Multimodal.ipynb` | Multimodal applications |
+| `4. Deployment.ipynb` | Vertex AI and deployment strategies |
+| `5. E2E Solutions.ipynb` | End-to-end generative AI solutions |
 
 ---
 
-## Estimated API Costs
-Running through all notebooks end-to-end costs roughly **$1–3** in API calls, depending on how much you re-run cells. 
+## Estimated API costs
+
+Running all notebooks end-to-end typically costs on the order of **$1–3** in API usage, depending on how often you re-run cells and current pricing.
+
+Vertex AI / Cloud Run / build steps in Module 4 can incur **additional GCP charges** if you execute them against a real project.
 
 ---
 
 ## Questions?
 
-Reach out at <a href="mailto:info@data4sci.com">info@data4sci.com</a> or open an issue if something isn't working.
+Reach out at [info@data4sci.com](mailto:info@data4sci.com) or open an issue if something isn’t working.
 
 ## Author
 
@@ -139,7 +169,7 @@ Reach out at <a href="mailto:info@data4sci.com">info@data4sci.com</a> or open an
 			Web: <a href="http://www.data4sci.com/">www.data4sci.com</a><br>
 			Twitter/X: <a href="https://twitter.com/bgoncalves">@bgoncalves</a><br>
 			LinkedIn: <a href="https://www.linkedin.com/in/bmtgoncalves/">@bmtgoncalves</a><br>
-			Email: <a href="info@data4sci.com">info@data4sci.com</a><br>
+			Email: <a href="mailto:info@data4sci.com">info@data4sci.com</a><br>
 			Schedule a Call: <a href="https://data4sci.com/call">https://data4sci.com/call</a>
 	  </p>
 	</td>
